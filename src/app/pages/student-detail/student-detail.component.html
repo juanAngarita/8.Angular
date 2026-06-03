@@ -1,0 +1,13 @@
+<p>student-detail works!</p>
+<p>{{ studentId }}</p>
+@if (student) {
+  <p>{{ student.name }}</p>
+  <p>{{ student.age }}</p>
+  <p>{{ student.semester }}</p>
+  <p>{{ student.correo }}</p>
+  <p>{{ student.promedio }}</p>
+  <p>{{ student.creditosCursados }}</p>
+  <p>{{ student.photo }}</p>
+} @else {
+  <p>No se encontro el estudiante</p>
+}

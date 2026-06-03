@@ -1,0 +1,12 @@
+<app-page-title></app-page-title>
+<a [routerLink]="['/student/new']">Crear Estudiante</a>
+<app-student-table
+  [studentArray]="studentArray"
+  [areStudentsActive]="true"
+  (studentSelected)="desactivarEstudiante($event)"
+></app-student-table>
+<h3>Estudiantes desactivados</h3>
+<app-student-table
+  [studentArray]="studenRetirados"
+  [areStudentsActive]="false"
+></app-student-table>
