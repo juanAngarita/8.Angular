@@ -1,0 +1,42 @@
+<p>student-form works!</p>
+<p>{{ userId }}</p>
+<form [formGroup]="studentForm" (ngSubmit)="handleSumbit()">
+  <label for="name">Nombre:</label>
+  <input type="text" name="name" id="name" formControlName="name" />
+  @if (studentForm.get("name")?.touched && studentForm.get("name")?.invalid) {
+    <div>
+      @if (studentForm.get("name")?.errors?.["required"]) {
+        <small> El nombre es obligatorio </small>
+      }
+
+      @if (studentForm.get("name")?.errors?.["minlength"]) {
+        <small> El nombre debe tener al menos 3 caracteres </small>
+      }
+
+      @if (studentForm.get("name")?.errors?.["pattern"]) {
+        <small> El nombre solo puede contener letras </small>
+      }
+    </div>
+  }
+  <br />
+  <label for="age">Edad:</label>
+  <input type="text" name="age" id="age" formControlName="age" />
+  <br />
+  <label for="semester">Semestre:</label>
+  <input
+    type="number"
+    name="semester"
+    id="semester"
+    formControlName="semester"
+  />
+  <br />
+  <label for="email">Correo:</label>
+  <input type="email" name="email" id="email" formControlName="correo" />
+  <br />
+  <label for="photo">Photo:</label>
+  <input type="text" name="photo" id="photo" formControlName="photo" />
+  <br />
+  <button type="submit" [disabled]="!studentForm.valid">
+    Crear estudiante
+  </button>
+</form>

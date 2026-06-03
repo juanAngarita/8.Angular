@@ -1,0 +1,35 @@
+<table>
+  <th>Photo</th>
+  <th>Name</th>
+  <th>Age</th>
+  <th>Semester</th>
+  <th>Correo</th>
+  <th>Promedio</th>
+  <th>Creditos cursados</th>
+  <th>Acciones</th>
+  @for (student of studentArray(); track $index) {
+    <tr>
+      <td>
+        @if (student.photo) {
+          <img [src]="student.photo" [width]="ancho" [height]="alto" />
+        } @else {
+          <p>No hay foto <br />de estudiantes</p>
+        }
+      </td>
+
+      <td>{{ student.name }}</td>
+      <td>{{ student.age }}</td>
+      <td>{{ student.semester }}</td>
+      <td>{{ student.correo }}</td>
+      <td>{{ student.promedio }}</td>
+      <td>{{ student.creditosCursados }}</td>
+      <td>
+        <button (click)="verDetalleEstudiante(student)">Ver detalle</button>
+        <a [routerLink]="['student', student.id]">Navegar con link</a>
+        @if (areStudentsActive()) {
+          <button (click)="desactivarEstudiante(student)">Desactivar</button>
+        }
+      </td>
+    </tr>
+  }
+</table>

@@ -1,0 +1,13 @@
+<header>
+  <nav>
+    <img src="images/logo.png" [height]="50" />
+    <a>Inicio</a>
+    <a>Campus virtual</a>
+    <a>Ayuda</a>
+    @if (username) {
+      <a>Bienvenido {{ username }}</a>
+    } @else {
+      <a>Iniciar sesión</a>
+    }
+  </nav>
+</header>
