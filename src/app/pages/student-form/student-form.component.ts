@@ -81,16 +81,16 @@ export class StudentFormComponent {
       creditosCursados: 0,
       photo:
         formValue.photo ??
-        'https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+        '',
+      active: true
     };
 
     if (this.isEdit) {
       this.studentService.updateStudent(this.userId!, newStudent);
       this.router.navigate(['']);
+    } else {
+      this.studentService.addStudent(newStudent);
+      this.router.navigate(['']);
     }
-
-    this.studentService.addStudent(newStudent);
-
-    this.router.navigate(['']);
   }
 }

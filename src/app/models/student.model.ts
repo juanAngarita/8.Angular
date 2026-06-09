@@ -8,4 +8,6 @@ export interface Student {
   promedio: number;
   creditosCursados: number;
   photo?: string;
+
+  active: boolean;
 }

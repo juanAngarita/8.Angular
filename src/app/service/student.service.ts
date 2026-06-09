@@ -19,26 +19,27 @@ export class StudentService {
   }
 
   desactivarEstudiante(student: Student) {
-    //this.studentArray = this.studentArray.filter((s) => s.id !== student.id);
+    student.active = false;
+  }
 
-    this.studentArray.splice(
-      this.studentArray.findIndex((s) => s.id === student.id),
-      1,
-    );
-
-    this.studenRetirados.push(student);
+  activarEstudiante(student: Student) {
+    student.active = true;
   }
 
   getActivestudents() {
-    return this.studentArray;
+    return this.studentArray.filter((student) => student.active);
   }
 
   getInactiveStudents() {
-    return this.studenRetirados;
+    return this.studentArray.filter((student) => !student.active);
   }
 
   getStudentById(id: number) {
     return this.studentArray.find((s) => s.id === id);
+  }
+
+  deleteStudent(student: Student) {
+    this.studentArray = this.studentArray.filter((s) => s.id !== student.id);
   }
 
   // servicios, clase, singleton,
@@ -48,54 +49,56 @@ export class StudentService {
       name: 'Pepe',
       age: 20,
       semester: 3,
-      correo: 'pepe@pepe',
+      correo: 'pepe@gmail.com',
       promedio: 3.0,
-      creditosCursados: 100,
+      creditosCursados: 10,
+      active: true,
     },
     {
       id: 2,
       name: 'Luis',
       age: 20,
       semester: 3,
-      correo: 'luis@luis',
+      correo: 'luis@gmail.com',
       promedio: 3.0,
       creditosCursados: 100,
       photo:
-        'https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy_eyKFEgycvP5t53oWdydRrDeVjB7AB8Tew&s',
+      active: true,
     },
     {
       id: 3,
       name: 'Maria',
       age: 20,
       semester: 3,
-      correo: 'maria@maria',
+      correo: 'maria@gmail.com',
       promedio: 3.0,
-      creditosCursados: 100,
+      creditosCursados: 20,
       photo:
-        'https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+        'https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?w=300&q=80',
+      active: true,
     },
     {
       id: 4,
       name: 'Pedro',
       age: 20,
       semester: 3,
-      correo: 'pedro@pedro',
+      correo: 'pedro@gmail.com',
       promedio: 3.0,
-      creditosCursados: 100,
+      creditosCursados: 80,
       photo:
-        'https://images.unsplash.com/photo-1499714608240-22fc6ad53fb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+        'https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F337051%2F08cad79f-f038-4d2b-9934-6ae09c5042b1.jpg',
+      active: true,
     },
-  ];
-
-  studenRetirados: Student[] = [
     {
-      id: 4,
+      id: 5,
       name: 'Pepe4',
       age: 24,
       semester: 3,
-      correo: 'pepe@pepe',
+      correo: 'pepe@gmail.com',
       promedio: 3.0,
       creditosCursados: 100,
+      active: false,
     },
   ];
 }

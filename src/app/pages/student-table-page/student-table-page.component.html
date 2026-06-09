@@ -1,12 +1,14 @@
 <app-page-title></app-page-title>
-<a [routerLink]="['/student/new']">Crear Estudiante</a>
+<a [routerLink]="['/student/new']" class="btn btn-primary">Crear Estudiante</a>
+<h3>Estudiantes activos</h3>
 <app-student-table
   [studentArray]="studentArray"
   [areStudentsActive]="true"
-  (studentSelected)="desactivarEstudiante($event)"
+  (studentSelected)="cambiarEstadoEstudiante($event)"
 ></app-student-table>
 <h3>Estudiantes desactivados</h3>
 <app-student-table
   [studentArray]="studenRetirados"
   [areStudentsActive]="false"
+  (studentSelected)="cambiarEstadoEstudiante($event)"
 ></app-student-table>

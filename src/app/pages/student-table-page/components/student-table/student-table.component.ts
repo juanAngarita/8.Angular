@@ -21,8 +21,14 @@ export class StudentTableComponent {
     this.studentSelected.emit(student);
   }
 
+  activarEstudiante(student: Student) {
+    this.studentSelected.emit(student);
+  }
+
   ancho: number = 100;
   alto = 100;
+
+  totalCreditos: number = 100;
 
   //mala practica
   variable: any = true;

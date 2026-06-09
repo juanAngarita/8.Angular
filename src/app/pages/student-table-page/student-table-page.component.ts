@@ -18,8 +18,15 @@ import { RouterLink } from '@angular/router';
   styleUrl: './student-table-page.component.scss',
 })
 export class StudentTablePageComponent {
-  desactivarEstudiante(student: Student) {
-    this.studentService.desactivarEstudiante(student);
+  cambiarEstadoEstudiante(student: Student) {
+    if(student.active){
+      this.studentService.desactivarEstudiante(student);
+    } else {
+      this.studentService.activarEstudiante(student);
+    }
+    //Actualizar la vista
+    this.studentArray = this.studentService.getActivestudents();
+    this.studenRetirados = this.studentService.getInactiveStudents();
   }
   //int numero = 20;
   //typescript
@@ -34,6 +41,7 @@ export class StudentTablePageComponent {
 
   studentArray: Student[] = [];
   studenRetirados: Student[] = [];
+
 
   ngOnInit() {
     this.studentArray = this.studentService.getActivestudents();
